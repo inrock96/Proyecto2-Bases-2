@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const fs = require('fs')
 var cassandra = require('cassandra-driver');
-var client = new cassandra.Client({ contactPoints: ['localhost']});
+var client = new cassandra.Client({ contactPoints: ['192.168.1.20']});
 
 
 router.post('/operacion/simple',(req,res)=>{
@@ -36,7 +36,7 @@ router.get('/instituciones',(req,res)=>{
 })
 
 router.get('/cuentahabientes',(req,res)=>{
-    client.execute('SELECT * FROM proyecto2.cuentahabiente_por_institucion').then(result=>{
+    client.execute('SELECT * FROM  proyecto2.cuentahabiente_por_institucion').then(result=>{
         res.send(result.rows)
     })
 })
@@ -50,3 +50,6 @@ router.post('/operacion/mensual',(req,res)=>{
         res.send(result.rows)
     })
 })
+
+
+module.exports = router

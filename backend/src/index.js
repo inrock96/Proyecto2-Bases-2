@@ -15,6 +15,6 @@ app.use(cors())
 //routes
 app.use(require('./routes/reportes'))
 
-app.listen(app.get('port'),()=>{
+app.listen(app.get('port'),'0.0.0.0',()=>{
     console.log(`Node server running on port: ${PORT}`)
 })
