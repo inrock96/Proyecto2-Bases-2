@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Transacción</h1>
+            <small>Ingresa datos para generar transacción</small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 pt-2">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-3">
+                        <label>Cuentahabiente</label>
+                        <input type="text" class="form-control" placeholder="CUI origen" #textCuentahabiente>
+                    </div> 
+                    <div class="form-group col-2">               
+                        <label>Banco</label>
+                        <select  id="inputState" class="form-control" #txtInst>
+                            <option  type="text"  *ngFor="let institucion of this.instituciones | keyvalue" [value]="institucion.value">{{institucion.value}}</option>
+                        </select>
+                    </div> 
+                    <div class="form-group col-3">
+                        <label>Tipo de Cuenta</label>
+                        <select  id="inputState" class="form-control" #txtCuenta>
+                            <option  type="text" [value]=1>Ahorro</option>
+                            <option  type="text" [value]=2>Monetaria en Q</option>
+                            <option  type="text" [value]=3>Monetaria en $</option>
+                        </select>
+                    </div>     
+                    <div class="form-group col-3">
+                        <label>Monto</label>
+                        <input type="number" class="form-control" placeholder="0" #textMonto>
+                    </div> 
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-3">
+                        <input type="text" class="form-control" placeholder="CUI Destino" #textDestino>
+                    </div> 
+                    <div class="form-group col-2">
+                        <select  id="inputState" class="form-control" #txtInstDest>
+                            <option  type="text"  *ngFor="let institucion of this.instituciones | keyvalue" [value]="institucion.value">{{institucion.value}}</option>
+                        </select>
+                    </div> 
+                    <div class="form-group col-3">
+                        <select  id="inputState" class="form-control" #txtTipoDest>
+                            <option  type="text" [value]=1>Ahorro</option>
+                            <option  type="text" [value]=2>Monetaria en Q</option>
+                            <option  type="text" [value]=3>Monetaria en $</option>
+                        </select>
+                    </div>     
+                  </div>
+                <div class="form-row pb-1">
+                  <div class="col">
+                    <button type="button" class="btn btn-lg btn-dark  btn-block">Enviar</button>
+                  </div>
+                </div>
+                <div class="form-row pb-5">
+                </div>
+                <div class="form-row pb-5">            
+                </div>
+                <div class="form-row pb-5">
+                </div>
+              </form>
+        </div>
+      </div>
+</div>

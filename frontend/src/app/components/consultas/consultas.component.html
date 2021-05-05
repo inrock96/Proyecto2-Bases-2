@@ -1,0 +1,235 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row-12 pb-5 justify-content-center">
+        <div class="col text-center">
+            <h1>Reportes</h1>
+            <small>Elija un reporte y especifique parámetros</small>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="col-3">
+            <select  id="inputState" class="form-control" #txtConsulta>
+                <option  type="text"  *ngFor="let consulta of this.consultas | keyvalue" [value]="consulta.value">{{consulta.value}}</option>
+            </select>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="CUI Usuario" #txtCUI>
+        </div>
+        <div class="col">
+            <select  id="inputState" class="form-control" #txtMes>
+                <option type="text"[value]=1>Enero</option>
+                <option type="text"[value]=2>Febrero</option>
+                <option type="text"[value]=3>Marzo</option>
+                <option type="text"[value]=4>Abril</option>
+                <option type="text"[value]=5>Mayo</option>
+                <option type="text"[value]=6>Junio</option>
+                <option type="text"[value]=7>Julio</option>
+                <option type="text"[value]=8>Agosto</option>
+                <option type="text"[value]=9>Septiembre</option>
+                <option type="text"[value]=10>Octubre</option>
+                <option type="text"[value]=11>Noviembre</option>
+                <option type="text"[value]=12>Diciembre</option>
+            </select>
+        </div>
+        <div class="col-2">
+            <select  id="inputState" class="form-control" #txtInst>
+                <option  type="text"  *ngFor="let institucion of this.instituciones | keyvalue" [value]="institucion.value">{{institucion.value}}</option>
+            </select>
+        </div>
+        
+        <div class="col-2">
+            <button type="button" class="btn btn-lg btn-dark  btn-block" (click)="reporte(txtConsulta.value,txtCUI.value,txtMes.value,txtInst.value)" >Enviar</button>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="table-responsive" *ngIf="this.reporte1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope ="col">CUI Origen</th>
+                        <th scope ="col">Institucion Origen</th>
+                        <th scope ="col">Cuenta Origen</th>
+                        <th scope ="col">CUI Destino</th>
+                        <th scope ="col">Institucion Destino</th>
+                        <th scope ="col">Cuenta Destino</th>
+                        <th scope ="col">Monto</th>
+                        <th scope ="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let operacion of operaciones">
+                    <tr>
+                        <td>{{operacion.}}</td>
+                        <td>{{operacion.}}</td>
+                        <td>{{operacion.}}</td>
+                        <td>{{operacion.}}</td>
+                        <td>{{operacion.}}</td>
+                        <td>{{operacion.}}</td>
+                        <td>{{operacion.}}</td>
+                        <td>{{operacion.}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="table-responsive" *ngIf="this.reporte21">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope ="col">CUI Origen</th>
+                        <th scope ="col">Institucion Origen</th>
+                        <th scope ="col">Cuenta Origen</th>
+                        <th scope ="col">CUI Destino</th>
+                        <th scope ="col">Institucion Destino</th>
+                        <th scope ="col">Cuenta Destino</th>
+                        <th scope ="col">Monto</th>
+                        <th scope ="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let credito of creditos">
+                    <tr>
+                        <td>{{credito}}</td>
+                        <td>{{credito}}</td>
+                        <td>{{credito}}</td>
+                        <td>{{credito}}</td>
+                        <td>{{credito}}</td>
+                        <td>{{credito}}</td>
+                        <td>{{credito}}</td>
+                        <td>{{credito}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="table-responsive" *ngIf="this.reporte22">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope ="col">CUI Origen</th>
+                        <th scope ="col">Institucion Origen</th>
+                        <th scope ="col">Cuenta Origen</th>
+                        <th scope ="col">CUI Destino</th>
+                        <th scope ="col">Institucion Destino</th>
+                        <th scope ="col">Cuenta Destino</th>
+                        <th scope ="col">Monto</th>
+                        <th scope ="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let debito of debitos">
+                    <tr *ngFor="let operacion of operaciones">
+                        <td>{{debito.}}</td>
+                        <td>{{debito.}}</td>
+                        <td>{{debito.}}</td>
+                        <td>{{debito.}}</td>
+                        <td>{{debito.}}</td>
+                        <td>{{debito.}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="table-responsive" *ngIf="this.reporte3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope ="col">Nombre</th>
+                        <th scope ="col">Apellido</th>
+                        <th scope ="col">CUI</th>
+                        <th scope ="col">Institucion</th>
+                        <th scope ="col">Tipo Cuenta</th>
+                        <th scope ="col">Saldo</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let cuenta of cuentahabientes">
+                    <tr>
+                        <td>{{cuenta.}}</td>
+                        <td>{{cuenta.}}</td>
+                        <td>{{cuenta.}}</td>
+                        <td>{{cuenta.}}</td>
+                        <td>{{cuenta.}}</td>
+                        <td>{{cuenta.}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="table-responsive" *ngIf="this.reporte4">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope ="col">Nombre</th>
+                        <th scope ="col">Abreviacion</th>
+                        <th scope ="col">CUI</th>
+                        <th scope ="col">Institucion</th>
+                        <th scope ="col">Tipo Cuenta</th>
+                        <th scope ="col">Saldo</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let inst of instituciones">
+                    <tr >
+                        <td>{{inst.}}</td>
+                        <td>{{isnt.}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="table-responsive" *ngIf="this.reporte5">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope ="col">CUI Origen</th>
+                        <th scope ="col">Institucion Origen</th>
+                        <th scope ="col">Cuenta Origen</th>
+                        <th scope ="col">CUI Destino</th>
+                        <th scope ="col">Institucion Destino</th>
+                        <th scope ="col">Cuenta Destino</th>
+                        <th scope ="col">Monto</th>
+                        <th scope ="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let operacion of operaciones">
+                    <tr *ngFor="let operacion of operaciones">
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="row pb-5">
+        <div class="table-responsive" *ngIf="this.reporte1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope ="col">Nombre</th>
+                        <th scope ="col">Apellido</th>
+                        <th scope ="col">CUI</th>
+                        <th scope ="col">Institucion</th>
+                        <th scope ="col">Tipo Cuenta</th>
+                        <th scope ="col">Saldo</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let operacion of operaciones">
+                    <tr *ngFor="let operacion of operaciones">
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                        <td>{{sueldo}}</td>
+                      </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
