@@ -14,6 +14,7 @@ router.post('/operacion/simple',(req,res)=>{
     })
 })
 
+
 router.post('/debito',(req,res)=>{
     let body = req.body
     let inst = body.institucion
@@ -51,5 +52,16 @@ router.post('/operacion/mensual',(req,res)=>{
     })
 })
 
+router.put('/operacion/simple',(req,res)=>{
+    let body = req.body
+    let cui1 = body.cui_origen
+    let banco1 = body.inst_origen
+    let tipo1 = body.tipo_origen
+    let monto = body.monto
+    let cui2 = body.cui_dest
+    let banco2 = body.inst_dest
+    let tipo2 = body.tipo_dest
+     
+})
 
 module.exports = router

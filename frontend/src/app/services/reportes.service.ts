@@ -35,4 +35,15 @@ export class ReportesService {
   operacionSimple(usuario){
     return this.http.post(`${this.API_URI}/operacion/simple`,{cuenta:usuario});
   }
+
+  updateOperacion(data){
+    return this.http.put(`${this.API_URI}/operacion/simple`,data);
+  
+  }
+  updateDebito(data){
+    return this.http.put(`${this.API_URI}/debito`,data);
+  }
+  updateCredito(data){
+    return this.http.put(`${this.API_URI}/credito`,data);
+  }
 }
