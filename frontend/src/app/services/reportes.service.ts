@@ -37,4 +37,15 @@ export class ReportesService {
     }
     return this.http.post(`${this.API_URI}/operacion/mensual`,data);
   }
+
+  updateOperacion(data){
+    return this.http.put(`${this.API_URI}/operacion/simple`,data);
+  
+  }
+  updateDebito(data){
+    return this.http.put(`${this.API_URI}/debito`,data);
+  }
+  updateCredito(data){
+    return this.http.put(`${this.API_URI}/credito`,data);
+  }
 }
