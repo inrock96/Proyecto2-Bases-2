@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http'
   providedIn: 'root'
 })
 export class ReportesService {
-  API_URI = 'http://localhost:3000/'
+  API_URI = 'http://192.168.1.20:3000'
   cuentahabiente:any=[]
   institucion:any=[]
   debito:any=[]
@@ -13,6 +13,11 @@ export class ReportesService {
   operacionesMes:any=[]
   constructor(private http:HttpClient) { }
 
+  
+  operacionSimple(usuario:number){
+    return this.http.post(`${this.API_URI}/operacion/simple`,{cuenta:usuario});
+  }
+ 
   debitoInst(institucion){
     return this.http.post(`${this.API_URI}/debito`,{institucion:institucion});
   }
@@ -30,9 +35,6 @@ export class ReportesService {
       cuenta:usuario,
       mes:mes
     }
-    return this.http.post(`${this.API_URI}/operacion/mensual`,{data});
-  }
-  operacionSimple(usuario){
-    return this.http.post(`${this.API_URI}/operacion/simple`,{cuenta:usuario});
+    return this.http.post(`${this.API_URI}/operacion/mensual`,data);
   }
 }
